@@ -7,7 +7,12 @@ const pool = new Pool({
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    port: Number(process.env.DB_PORT) || 5432,
+
+    // SSL for Neon PostgreSQL in production
+    ssl: process.env.NODE_ENV === 'production'
+        ? { rejectUnauthorized: false }
+        : false,
 });
 
 pool.on('connect', () => {
@@ -15,7 +20,7 @@ pool.on('connect', () => {
 });
 
 pool.on('error', (err) => {
-    console.error('Unexpected database error:', err);
+    console.error('Unexpected database error:', err.message);
 });
 
 module.exports = pool;
