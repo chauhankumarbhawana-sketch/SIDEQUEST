@@ -17,6 +17,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+// API Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/categories', categoryRoutes)
 app.use('/api/experiences', experienceRoutes)
@@ -24,10 +25,12 @@ app.use('/api/favourites', favouriteRoutes)
 app.use('/api/reviews', reviewRoutes)
 app.use('/api/business', businessRoutes)
 
+// Home Route
 app.get('/', (req, res) => {
   res.send('SIDEQUEST API is running!')
 })
 
+// Health Check
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
@@ -35,6 +38,7 @@ app.get('/api/health', (req, res) => {
   })
 })
 
+// Database Connection Test
 app.get('/api/db-test', async (req, res) => {
   try {
     const result = await pool.query('SELECT NOW()')
@@ -56,11 +60,6 @@ app.get('/api/db-test', async (req, res) => {
 
 const PORT = process.env.PORT || 5000
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`SIDEQUEST server running on port ${PORT}`)
 })
-
-// Diagnostic test: process should stay alive
-setInterval(() => {
-  console.log('SIDEQUEST server is still alive')
-}, 5000)
