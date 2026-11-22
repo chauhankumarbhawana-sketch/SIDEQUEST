@@ -1,8 +1,10 @@
 
 import { useEffect, useState } from 'react'
 
-const API_URL = 'http://localhost:5000/api/business'
-const CATEGORY_URL = 'http://localhost:5000/api/categories'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+
+const API_URL = `${API_BASE_URL}/api/business`
+const CATEGORY_URL = `${API_BASE_URL}/api/categories`
 
 type Business = {
   id: number
