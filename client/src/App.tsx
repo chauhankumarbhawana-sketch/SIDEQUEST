@@ -1,4 +1,4 @@
-﻿
+
 import { Routes, Route, useParams, Link, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
@@ -218,21 +218,21 @@ function HomePage() {
                   to="/admin-dashboard"
                   className="whitespace-nowrap rounded-full bg-[#EAF2D7] px-4 py-3 text-sm font-semibold transition hover:bg-[#B5E550]"
                 >
-                  Ã°Å¸â€ºÂ¡Ã¯Â¸Â Admin Dashboard
+                  🛡️ Admin Dashboard
                 </Link>
               ) : currentUser.role === 'business' ? (
                 <Link
                   to="/business-dashboard"
                   className="whitespace-nowrap rounded-full bg-[#EAF2D7] px-4 py-3 text-sm font-semibold transition hover:bg-[#B5E550]"
                 >
-                  Ã°Å¸ÂÂª Dashboard
+                  🏪 Dashboard
                 </Link>
               ) : (
                 <Link
                   to="/favourites"
                   className="whitespace-nowrap rounded-full border border-black/15 px-4 py-3 text-sm font-semibold transition hover:bg-[#EAF2D7]"
                 >
-                  Ã¢â„¢Â¥ Favourites
+                  ♥ Favourites
                 </Link>
               )}
 
@@ -247,7 +247,7 @@ function HomePage() {
             <>
               <Link to="/login" className="text-sm font-semibold hover:text-lime-700">Log In</Link>
               <Link to="/signup" className="whitespace-nowrap rounded-full bg-[#20211E] px-5 py-3 text-sm text-white transition hover:bg-lime-700">
-                Sign Up
+                Sign Up ↗
               </Link>
             </>
           )}
@@ -273,23 +273,23 @@ function HomePage() {
             </p>
 
             <a href="#explore" className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#20211E] px-7 py-4 font-semibold text-white transition hover:bg-lime-700">
-              Find your next SIDEQUEST <span>Ã¢â€ â€”</span>
+              Find your next SIDEQUEST <span>↗</span>
             </a>
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-3 sm:grid-cols-3 md:gap-6">
             <div className="rounded-2xl bg-[#E9EBD9] p-5 md:p-7">
-              <span className="text-3xl md:text-4xl">Ã¢Ëœâ€¢</span>
+              <span className="text-3xl md:text-4xl">☕</span>
               <p className="mt-4 text-base font-bold md:text-lg">New places</p>
               <p className="mt-1 text-sm text-gray-600">Find your next favourite.</p>
             </div>
             <div className="rounded-2xl bg-[#E8E8DE] p-5 md:p-7">
-              <span className="text-3xl md:text-4xl">Ã°Å¸Å½Â¨</span>
+              <span className="text-3xl md:text-4xl">🎨</span>
               <p className="mt-4 text-base font-bold md:text-lg">New experiences</p>
               <p className="mt-1 text-sm text-gray-600">Try something different.</p>
             </div>
             <div className="rounded-2xl bg-[#E6EDCF] p-5 md:p-7">
-              <span className="text-3xl md:text-4xl">Ã°Å¸â€œÂ</span>
+              <span className="text-3xl md:text-4xl">📍</span>
               <p className="mt-4 text-base font-bold md:text-lg">Hidden gems</p>
               <p className="mt-1 text-sm text-gray-600">Explore beyond the usual.</p>
             </div>
@@ -306,7 +306,7 @@ function HomePage() {
           </div>
 
           <div className="mt-9 flex items-center gap-3 rounded-2xl border border-black/10 bg-white px-5 py-4">
-            <span className="text-xl">Ã¢Å’â€¢</span>
+            <span className="text-xl">⌕</span>
             <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search places, activities or areas..." className="w-full min-w-0 bg-transparent text-sm outline-none" />
           </div>
 
@@ -325,7 +325,7 @@ function HomePage() {
               <p className="text-sm font-semibold uppercase tracking-widest text-lime-800">Handpicked for you</p>
               <h2 className="mt-2 text-3xl font-black md:text-4xl">Explore something new.</h2>
             </div>
-            <span className="text-sm text-gray-500">Delhi edition Ã‚Â· 01</span>
+            <span className="text-sm text-gray-500">Delhi edition · 01</span>
           </div>
 
           {favouriteError && <p className="mb-4 text-sm text-red-600">{favouriteError}</p>}
@@ -345,10 +345,10 @@ function HomePage() {
                         <span className="rounded-full bg-[#EAF2D7] px-3 py-2 text-xs font-semibold">{place.category}</span>
                         <h3 className="mt-5 text-xl font-bold">{place.title}</h3>
                         <p className="mt-2 text-sm text-gray-500">{place.business_name}</p>
-                        <p className="mt-2 text-sm text-gray-500">Ã°Å¸â€œÂ {place.location}</p>
+                        <p className="mt-2 text-sm text-gray-500">📍 {place.location}</p>
                         <p className="mt-3 text-sm text-gray-600">{place.description}</p>
                         <div className="mt-5 flex items-center justify-between gap-2">
-                          <span className="text-sm font-semibold">Ã¢â€šÂ¹{Number(place.price).toLocaleString('en-IN')} onwards</span>
+                          <span className="text-sm font-semibold">₹{Number(place.price).toLocaleString('en-IN')} onwards</span>
                           <span className="text-xs text-gray-500">{place.area}</span>
                         </div>
                       </div>
@@ -357,7 +357,7 @@ function HomePage() {
 
                   <button type="button" onClick={() => handleFavourite(place.id)} aria-label={favouriteIds.includes(place.id) ? 'Remove from favourites' : 'Add to favourites'} className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl shadow-md transition hover:scale-110">
                     <span className={favouriteIds.includes(place.id) ? 'text-red-500' : 'text-gray-400'}>
-                      {favouriteIds.includes(place.id) ? 'Ã¢â„¢Â¥' : 'Ã¢â„¢Â¡'}
+                      {favouriteIds.includes(place.id) ? '♥' : '♡'}
                     </span>
                   </button>
                 </div>
@@ -374,7 +374,7 @@ function HomePage() {
           <p className="text-sm uppercase tracking-widest text-[#B5E550]">Coming soon</p>
           <h2 className="mt-5 max-w-2xl text-4xl font-black leading-tight md:text-6xl">No plans?<br />We'll make you one.</h2>
           <p className="mt-5 max-w-lg text-gray-300">Your budget, your mood, your time. Let SIDEQUEST create an outing worth remembering.</p>
-          <button disabled className="mt-8 cursor-not-allowed rounded-full bg-[#B5E550] px-7 py-4 font-bold text-black opacity-90">Quest Generator Ã‚Â· Coming soon</button>
+          <button disabled className="mt-8 cursor-not-allowed rounded-full bg-[#B5E550] px-7 py-4 font-bold text-black opacity-90">Quest Generator · Coming soon</button>
         </section>
 
         <footer id="about" className="border-t border-black/10 px-6 py-9 md:px-16">
@@ -383,7 +383,7 @@ function HomePage() {
               <p className="text-xl font-black tracking-tight">SIDEQUEST<span className="text-lime-600">.</span></p>
               <p className="mt-2 text-sm text-gray-500">Less scrolling. More living.</p>
             </div>
-            <p className="text-sm text-gray-500 md:self-end">Made for explorers. Starting in Delhi. Ã‚Â© 2026 SIDEQUEST</p>
+            <p className="text-sm text-gray-500 md:self-end">Made for explorers. Starting in Delhi. © 2026 SIDEQUEST</p>
           </div>
         </footer>
       </main>
@@ -535,7 +535,7 @@ function ExperienceDetails({ id }: { id: string }) {
     <div className="min-h-screen bg-[#F8F8F2] text-[#20211E]">
       <nav className="flex items-center justify-between gap-4 border-b border-black/10 px-6 py-5 md:px-16">
         <Link to="/" className="text-2xl font-black tracking-tighter no-underline">SIDEQUEST<span className="text-[#B5E550]">.</span></Link>
-        <Link to="/#experiences" className="text-sm font-semibold text-inherit no-underline transition hover:text-lime-700">Ã¢â€ Â Back to Explore</Link>
+        <Link to="/#experiences" className="text-sm font-semibold text-inherit no-underline transition hover:text-lime-700">← Back to Explore</Link>
       </nav>
 
       <main className="mx-auto max-w-5xl px-6 py-10 md:px-10 md:py-14">
@@ -549,11 +549,11 @@ function ExperienceDetails({ id }: { id: string }) {
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="rounded-2xl bg-white p-6">
               <p className="text-sm text-gray-500">Location</p>
-              <p className="mt-2 font-bold">Ã°Å¸â€œÂ {experience.location}, {experience.area}, {experience.city}</p>
+              <p className="mt-2 font-bold">📍 {experience.location}, {experience.area}, {experience.city}</p>
             </div>
             <div className="rounded-2xl bg-white p-6">
               <p className="text-sm text-gray-500">Starting price</p>
-              <p className="mt-2 text-xl font-bold">Ã¢â€šÂ¹{Number(experience.price).toLocaleString('en-IN')} onwards</p>
+              <p className="mt-2 text-xl font-bold">₹{Number(experience.price).toLocaleString('en-IN')} onwards</p>
             </div>
           </div>
 
@@ -563,12 +563,12 @@ function ExperienceDetails({ id }: { id: string }) {
           </section>
 
           <a href={mapUrl} target="_blank" rel="noreferrer" className="mt-9 inline-flex rounded-full bg-[#20211E] px-7 py-4 font-semibold text-white no-underline transition hover:bg-lime-700">
-            Get Directions Ã¢â€ â€”
+            Get Directions ↗
           </a>
 
           <section className="mt-16 border-t border-black/10 pt-10">
             <p className="text-sm font-semibold uppercase tracking-widest text-lime-800">Community feedback</p>
-            <h2 className="mt-3 text-3xl font-black md:text-4xl">Reviews & Ratings Ã¢Â­Â</h2>
+            <h2 className="mt-3 text-3xl font-black md:text-4xl">Reviews & Ratings ⭐</h2>
 
             {reviews.length > 0 && (
               <div className="mt-5 rounded-2xl bg-[#EAF2D7] p-5">
@@ -596,7 +596,7 @@ function ExperienceDetails({ id }: { id: string }) {
                     <div className="mt-2 flex gap-2">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <button key={star} type="button" onClick={() => setRating(star)} aria-label={`Rate ${star} stars`} className={`text-3xl transition hover:scale-110 ${star <= rating ? 'text-yellow-400' : 'text-gray-300'}`}>
-                          Ã¢Ëœâ€¦
+                          ★
                         </button>
                       ))}
                     </div>
@@ -609,7 +609,7 @@ function ExperienceDetails({ id }: { id: string }) {
                   </div>
 
                   <button type="submit" disabled={submittingReview} className="rounded-full bg-[#20211E] px-7 py-3 font-semibold text-white transition hover:bg-lime-700 disabled:opacity-50">
-                    {submittingReview ? 'Submitting...' : 'Submit Review Ã¢â€ â€™'}
+                    {submittingReview ? 'Submitting...' : 'Submit Review →'}
                   </button>
                 </form>
               )}
@@ -625,7 +625,7 @@ function ExperienceDetails({ id }: { id: string }) {
                 <p className="mt-6 text-gray-500">Loading reviews...</p>
               ) : reviews.length === 0 ? (
                 <div className="mt-6 rounded-2xl bg-white p-8 text-center">
-                  <p className="text-4xl">Ã°Å¸â€™Â¬</p>
+                  <p className="text-4xl">💬</p>
                   <p className="mt-3 font-bold">No reviews yet</p>
                   <p className="mt-2 text-sm text-gray-500">Be the first to share your experience!</p>
                 </div>
@@ -638,7 +638,7 @@ function ExperienceDetails({ id }: { id: string }) {
                           <p className="font-bold">{review.user_name}</p>
                           <p className="mt-1 text-sm text-gray-400">{new Date(review.created_at).toLocaleDateString('en-IN')}</p>
                         </div>
-                        <p className="text-xl text-yellow-400">{'Ã¢Ëœâ€¦'.repeat(Number(review.rating))}{'Ã¢Ëœâ€ '.repeat(5 - Number(review.rating))}</p>
+                        <p className="text-xl text-yellow-400">{'★'.repeat(Number(review.rating))}{'☆'.repeat(5 - Number(review.rating))}</p>
                       </div>
 
                       {review.comment && <p className="mt-4 leading-relaxed text-gray-600">{review.comment}</p>}
@@ -731,12 +731,12 @@ function FavouritesPage() {
     <div className="min-h-screen bg-[#F8F8F2] text-[#20211E]">
       <nav className="flex items-center justify-between border-b border-black/10 px-6 py-5 md:px-16">
         <Link to="/" className="text-2xl font-black tracking-tighter no-underline">SIDEQUEST<span className="text-[#B5E550]">.</span></Link>
-        <Link to="/" className="text-sm font-semibold text-inherit no-underline hover:text-lime-700">Ã¢â€ Â Back to Explore</Link>
+        <Link to="/" className="text-sm font-semibold text-inherit no-underline hover:text-lime-700">← Back to Explore</Link>
       </nav>
 
       <main className="px-6 py-14 md:px-16">
         <p className="text-sm font-semibold uppercase tracking-widest text-lime-800">Your personal collection</p>
-        <h1 className="mt-3 text-4xl font-black md:text-5xl">My Favourites <span className="text-red-500">Ã¢â„¢Â¥</span></h1>
+        <h1 className="mt-3 text-4xl font-black md:text-5xl">My Favourites <span className="text-red-500">♥</span></h1>
         <p className="mt-3 text-gray-500">All the places you want to explore, in one place.</p>
 
         {loading ? (
@@ -748,10 +748,10 @@ function FavouritesPage() {
           </div>
         ) : favourites.length === 0 ? (
           <div className="py-20 text-center">
-            <p className="text-5xl">Ã¢â„¢Â¡</p>
+            <p className="text-5xl">♡</p>
             <h2 className="mt-5 text-2xl font-bold">No favourites yet!</h2>
             <p className="mt-2 text-gray-500">Save places you love and find them here.</p>
-            <Link to="/" className="mt-7 inline-flex rounded-full bg-[#20211E] px-7 py-4 font-semibold text-white no-underline hover:bg-lime-700">Explore places Ã¢â€ â€”</Link>
+            <Link to="/" className="mt-7 inline-flex rounded-full bg-[#20211E] px-7 py-4 font-semibold text-white no-underline hover:bg-lime-700">Explore places ↗</Link>
           </div>
         ) : (
           <div className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -764,12 +764,12 @@ function FavouritesPage() {
                       <span className="rounded-full bg-[#EAF2D7] px-3 py-2 text-xs font-semibold">{place.category}</span>
                       <h3 className="mt-5 text-xl font-bold">{place.title}</h3>
                       <p className="mt-2 text-sm text-gray-500">{place.business_name}</p>
-                      <p className="mt-2 text-sm text-gray-500">Ã°Å¸â€œÂ {place.location}</p>
-                      <p className="mt-4 text-sm font-semibold">Ã¢â€šÂ¹{Number(place.price).toLocaleString('en-IN')} onwards</p>
+                      <p className="mt-2 text-sm text-gray-500">📍 {place.location}</p>
+                      <p className="mt-4 text-sm font-semibold">₹{Number(place.price).toLocaleString('en-IN')} onwards</p>
                     </div>
                   </article>
                 </Link>
-                <button onClick={() => removeFavourite(place.id)} className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl text-red-500 shadow-md transition hover:scale-110" aria-label="Remove from favourites">Ã¢â„¢Â¥</button>
+                <button onClick={() => removeFavourite(place.id)} className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl text-red-500 shadow-md transition hover:scale-110" aria-label="Remove from favourites">♥</button>
               </div>
             ))}
           </div>
