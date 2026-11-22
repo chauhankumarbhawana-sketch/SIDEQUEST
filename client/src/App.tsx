@@ -247,7 +247,7 @@ function HomePage() {
             <>
               <Link to="/login" className="text-sm font-semibold hover:text-lime-700">Log In</Link>
               <Link to="/signup" className="whitespace-nowrap rounded-full bg-[#20211E] px-5 py-3 text-sm text-white transition hover:bg-lime-700">
-                Sign Up Ã¢â€ â€”
+                Sign Up
               </Link>
             </>
           )}
